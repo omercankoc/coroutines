@@ -113,3 +113,69 @@ fun main(){
   }
 }  
 ```
+Async : It enables to perform more than one task asynchronously.
+```kotlin
+fun main(){
+  var language = ""
+  var platform = ""
+        
+  runBlocking {
+    val downloadLanguage = async {
+      downloadLanguage()
+    }
+
+    val downloadPlatform = async {
+      downloadPlatform()
+    }
+
+    language = downloadLanguage.await() // Waits to load...
+    platform = downloadPlatform.await() // Waits to load...
+
+    println("$language $platform")
+  }
+}
+
+suspend fun downloadLanguage() : String {
+  val language = "Kotlin"
+  println("Complete Download Language!")
+  return language
+}
+
+suspend fun downloadPlatform() : String {
+  val platform = "Android"
+  println("Complete Download Platform!")
+  return platform
+}
+```
+
+Job : 
+```kotlin
+runBlocking {
+  
+  val firstJob = launch {
+    delay(5000)
+    println("FIRST JOB...")
+    
+    val secondJob = launch {
+      delay(5000)
+      println("SECOND JOB...")
+    }
+  }
+
+  // When finished...
+  firstJob.invokeOnCompletion {
+    println("Job is Completed!")
+  }
+  firstJob.cancel()
+}
+
+A different Thread on the same Scope :
+runBlocking {
+  launch(Dispatchers.Default) {
+    println("Context : $coroutineContext")
+    withContext(Dispatchers.IO){
+      println("Context : $coroutineContext")
+    }
+  }
+}
+```
