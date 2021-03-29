@@ -168,8 +168,9 @@ runBlocking {
   }
   firstJob.cancel()
 }
-
+```
 A different Thread on the same Scope :
+```kotlin
 runBlocking {
   launch(Dispatchers.Default) {
     println("Context : $coroutineContext")
