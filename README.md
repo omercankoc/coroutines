@@ -152,7 +152,7 @@ suspend fun downloadPlatform() : String {
 }
 ```
 
-Job : 
+Job : Jobs whose execution can be intervened.
 ```kotlin
 runBlocking {
   
