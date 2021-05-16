@@ -8,5 +8,5 @@ fun main(){
                 println("In the Global Scope!")
             }
         }
-  	}
+    }
 }
