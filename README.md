@@ -1,6 +1,9 @@
 ## What is Coroutines?
 
-<p>Coroutines is the recommended solution for asynchronous programming on Android. Notable features include:</p>
+Coroutines is the recommended solution for asynchronous programming on Android. 
+
+Notable features include:
+
 <ul>
   <li>Lightweight</li>
   <li>Fewer memory leaks</li>
@@ -9,6 +12,7 @@
 </ul>
 
 ### Dependency:
+
 ```gradle
 dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9'
@@ -19,7 +23,10 @@ or
 import kotlinx.coroutines.*
 ```
 
-### Global Scope : Runs on the entire application.
+### Global Scope: 
+
+Runs on the entire application.
+
 ```kotlin
 import kotlinx.coroutines.*
 
@@ -33,9 +40,13 @@ fun main(){
     println("Global Scope End!")
 }
 ```
+
 Now, first "Global Scope Start!" then "Global Scope End!" drops to the display. After 5 seconds, the "Global Scope..." drops to the screen.
 
-### Run Blocking : It prevents the execution of subsequent operations until the operations it covers are completed.
+### Run Blocking:
+
+It prevents the execution of subsequent operations until the operations it covers are completed.
+
 ```kotlin
 import kotlinx.coroutines.*
 
@@ -52,8 +63,12 @@ fun main(){
 }
 ```
 
-### Coroutine Scope : It acts like a "Global Scope". It does not cover the entire application.
-1. Through the "suspend function"
+### Coroutine Scope: 
+
+It acts like a "Global Scope". It does not cover the entire application.
+
+1. Through the "suspend function":
+
 ```kotlin
 import kotlinx.coroutines.*
 
@@ -66,7 +81,9 @@ fun main(){
     println("Coroutine Scope End!")
 }
 ```
-2. Through the "another coroutine"
+
+2. Through the "another coroutine":
+
 ```kotlin
 import kotlinx.coroutines.*
 
@@ -88,8 +105,9 @@ fun main(){
 }
 ```
 
-### Dispatchers : 
-<p>Dispatchers.Default    -> The default CoroutineDispatcher that is used by all standard builders like launch, async, etc if neither a dispatcher nor any other                                  ContinuationInterceptor is specified in their context.</p>
+### Dispatchers:
+
+<p>Dispatchers.Default    -> The default CoroutineDispatcher that is used by all standard builders like launch, async, etc if neither a dispatcher nor any other                                ContinuationInterceptor is specified in their context.</p>
 <p>Dispatchers.IO         -> The CoroutineDispatcher that is designed for offloading blocking IO tasks to a shared pool of threads.</p>
 <p>Dispatchers.Main       -> A coroutine dispatcher that is confined to the Main thread operating with UI objects. Usually such dispatchers are single-threaded.</p>
 <p>Dispatchers.Unconfined -> A coroutine dispatcher that is not confined to any specific thread. It executes the initial continuation of a coroutine in the current                              call-frame and lets the coroutine resume in whatever thread that is used by the corresponding suspending function, without mandating                                any specific threading policy. Nested coroutines launched in this dispatcher form an event-loop to avoid stack overflows.</p>
@@ -119,7 +137,10 @@ fun main(){
 }
 ```
 
-### Suspend : Functions that run coroutines in it.
+### Suspend: 
+
+Functions that run coroutines in it.
+
 ```kotlin
 import kotlinx.coroutines.*
 
@@ -145,7 +166,11 @@ suspend fun suspendCoroutines(){
     }
 }  
 ```
-### Async : It enables to perform more than one task asynchronously.
+
+### Async: 
+
+It enables to perform more than one task asynchronously.
+
 ```kotlin
 import kotlinx.coroutines.*
 
@@ -179,7 +204,10 @@ suspend fun downloadPlatform() : String {
 }
 ```
 
-### Job : Jobs whose execution can be intervened.
+### Job: 
+
+Jobs whose execution can be intervened.
+
 ```kotlin
 import kotlinx.coroutines.*
 
@@ -201,7 +229,9 @@ fun main(){
     }
 }
 ```
-### A different Thread on the same Scope :
+
+### A different Thread on the same Scope:
+
 ```kotlin
 import kotlinx.coroutines.*
 
