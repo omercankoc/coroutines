@@ -1,8 +1,8 @@
-## What is Coroutines?
+# What is Coroutines?
 
 Coroutines is the recommended solution for asynchronous programming on Android. 
 
-Notable features include:
+## Notable features include:
 
 <ul>
   <li>Lightweight</li>
